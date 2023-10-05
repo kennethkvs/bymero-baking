@@ -1,7 +1,7 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import MainHero from "@/components/MainHero";
 import Menu from "@/components/Menu";
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
@@ -16,13 +16,13 @@ export default function Home() {
   function mainContent() {
     switch (page) {
       case 0:
-        return <Hero />;
+        return <MainHero />;
       case 1:
         return <Menu />;
       case 2:
         return <Footer />;
       default:
-        return <Hero />;
+        return <MainHero />;
     }
   }
 

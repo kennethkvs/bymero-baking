@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Hero() {
+export default function MainHero() {
   return (
     <div
       className="flex h-screen flex-col items-center justify-center 
