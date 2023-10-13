@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function Navbar(props) {
   const pages = [
-    { name: "Home", id: 0 },
-    { name: "Menu", id: 1 },
-    { name: "About", id: 2 },
-    { name: "Contact", id: 3 },
-    { name: "Order", id: 4 },
+    { name: "Home", id: 0, href: "/" },
+    { name: "Menu", id: 1, href: "/menu" },
+    { name: "About", id: 2, href: "/about" },
+    { name: "Contact", id: 3, href: "/contact" },
+    { name: "Order", id: 4, href: "/order" },
   ];
 
   return (
@@ -14,13 +15,13 @@ export default function Navbar(props) {
       <div>Bymero Baking</div>
       <div className="flex flex-row">
         {pages.map((page) => (
-          <div
+          <Link
             key={page.id}
             className="m-2 cursor-pointer underline-offset-[6px] hover:underline"
-            onClick={() => props.handlePageChange(page.id)}
+            href={page.href}
           >
             {page.name}
-          </div>
+          </Link>
         ))}
       </div>
     </nav>
