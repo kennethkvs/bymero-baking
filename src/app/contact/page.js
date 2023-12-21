@@ -13,7 +13,7 @@ export default function ContactPage() {
           <h1 className="text-center text-4xl font-bold">
             Have a Burning Question?
           </h1>
-          <p className="mb-4 text-center text-xl">Feel free to ask us!</p>
+          <p className="mb-4 text-center text-xl">Feel free to contact us!</p>
           <div className="flex justify-center">
             <p className="m-2 text-center text-sm">
               Email: bymerobaking@gmail.com

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="absolute bottom-0 flex w-full flex-col items-center justify-center bg-[#642902] p-8 text-[#7d938a]">
+    <div className="bg-brand-200 text-brand-100 absolute bottom-0 flex w-full flex-col items-center justify-center p-8">
       <div className="text-m">Bymero Baking © 2023: All rights reserved</div>
     </div>
   );

@@ -5,14 +5,45 @@ export default function ContactForm() {
   const [lname, setLName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("ready");
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
-    // You can add your own logic here to send the form data to a server or API
+    setStatus("sending");
+
+    await fetch("/api/email", {
+      method: "POST",
+      body: JSON.stringify({
+        fName: fname,
+        lName: lname,
+        email: email,
+        msg: message,
+      }),
+    });
+
+    setStatus("sent");
+  }
+
+  const resetForm = () => {
+    setFName("");
+    setLName("");
+    setEmail("");
+    setMessage("");
+    setStatus("ready");
   };
 
-  return (
+  return status == "sent" ? (
+    <div className="flex flex-col items-center justify-center">
+      <h1 className="text-bold text-3xl">Thank you for contacting us!</h1>
+      <p>We will get back to you as soon as we can.</p>
+      <button
+        onClick={() => resetForm()}
+        className="my-2 rounded-3xl border-[1px] border-gray-500 bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
+      >
+        Send Another Message
+      </button>
+    </div>
+  ) : (
     <form onSubmit={handleSubmit} className="flex w-1/2 content-center">
       <div className="flex w-full flex-col justify-center">
         <input
@@ -56,10 +87,14 @@ export default function ContactForm() {
         ></textarea>
 
         <button
-          className="my-2 rounded-3xl border-[1px] border-gray-500 bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
+          className={`my-2 rounded-3xl border-[1px] border-gray-500 px-4 py-2 text-white ${
+            status == "sending"
+              ? "bg-slate-300"
+              : "bg-blue-500 hover:bg-blue-700"
+          }`}
           type="submit"
         >
-          Send Message
+          {status == "sending" ? "Sending..." : "Send Message"}
         </button>
       </div>
     </form>
