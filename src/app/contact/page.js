@@ -9,7 +9,7 @@ export default function ContactPage() {
     <div className="relative min-h-screen">
       <Navbar />
       <main className="pb-20">
-        <div className="m-5 flex flex-col justify-center rounded-xl bg-slate-200 p-10">
+        <div className="m-5 flex flex-col justify-center rounded-xl bg-neutral-200 p-10">
           <h1 className="text-center text-4xl font-bold">
             Have a Burning Question?
           </h1>
