@@ -1,7 +1,6 @@
 import { Resend } from "resend";
 
 import ContactEmail from "@/emails/Contact.jsx";
-import { data } from "autoprefixer";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -13,7 +12,7 @@ export async function POST(request) {
       from: "onboarding@resend.dev",
       to: email,
       subject: "Thank you for contacting us!",
-      react: <ContactEmail fName={fName} lName={lName} message={msg} />,
+      react: <ContactEmail firstName={fName} lastName={lName} message={msg} />,
     });
 
     return Response.json(data);
