@@ -37,6 +37,22 @@ export default function OrderPage() {
   const [cart, setCart] = React.useState([]);
   const [total, setTotal] = React.useState(0);
 
+  // Get cart and total from localStorage if exists
+  React.useEffect(() => {
+    const getCart = JSON.parse(localStorage.getItem("cart"));
+    const getTotal = JSON.parse(localStorage.getItem("total"));
+    if (getCart && getTotal) {
+      setCart(getCart);
+      setTotal(getTotal);
+    }
+  }, []);
+
+  // Update localStorage when cart or total changes
+  React.useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("total", JSON.stringify(total));
+  }, [cart]);
+
   function handleAddToCart(newItem) {
     const existing = cart.find(
       (thisItem) => thisItem.item.id === newItem.item.id,
