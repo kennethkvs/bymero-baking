@@ -6,33 +6,6 @@ import Navbar from "@/components/Navbar";
 import OrderCard from "@/components/OrderCard";
 import CartSection from "@/components/CartSection";
 
-const menuItems = [
-  {
-    id: 0,
-    name: "Nastar",
-    price: 15.0,
-    spelling: "/nasˈtɑɹ/",
-    desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-    img: "/images/cookies.jpg",
-  },
-  {
-    id: 1,
-    name: "Kaasstengel",
-    price: 15.0,
-    spelling: "/kaasstɛŋɡɛl/",
-    desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-    img: "/images/cookies.jpg",
-  },
-  {
-    id: 2,
-    name: "Cookies",
-    price: 15.0,
-    spelling: "/ˈkʊkiz/",
-    desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-    img: "/images/cookies.jpg",
-  },
-];
-
 export default function OrderPage() {
   const [cart, setCart] = React.useState([]);
   const [total, setTotal] = React.useState(0);
