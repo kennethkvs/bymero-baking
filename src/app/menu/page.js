@@ -1,10 +1,18 @@
+"use client";
+
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import Navbar from "@/components/Navbar";
+import React from "react";
 
-export default async function MenuPage() {
-  const res = await import("../api/menu/route");
-  const menuItems = await (await res.GET()).json();
+export default function MenuPage() {
+  const [menuItems, setMenuItems] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch("/api/menu")
+      .then((res) => res.json())
+      .then((data) => setMenuItems(data));
+  }, []);
 
   const displayMenu = menuItems.map((item) => (
     <div key={item._id}>
