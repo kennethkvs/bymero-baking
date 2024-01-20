@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+import mongoose, { Schema } from "mongoose";
 
 const MenuSchema = new Schema({
   name: {
@@ -25,3 +25,7 @@ const MenuSchema = new Schema({
     required: true,
   },
 });
+
+const Menu = mongoose.models.Menu || mongoose.model("Menu", MenuSchema);
+
+export default Menu;

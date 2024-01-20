@@ -1,39 +1,13 @@
-"use client";
-
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import Navbar from "@/components/Navbar";
 
-const menuItems = [
-  {
-    id: 0,
-    name: "Nastar",
-    price: 15.0,
-    spelling: "/nasˈtɑɹ/",
-    desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-    img: "/images/cookies.jpg",
-  },
-  {
-    id: 1,
-    name: "Kaasstengel",
-    price: 15.0,
-    spelling: "/kaasstɛŋɡɛl/",
-    desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-    img: "/images/cookies.jpg",
-  },
-  {
-    id: 2,
-    name: "Cookies",
-    price: 15.0,
-    spelling: "/ˈkʊkiz/",
-    desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-    img: "/images/cookies.jpg",
-  },
-];
+export default async function MenuPage() {
+  const res = await import("../api/menu/route");
+  const menuItems = await (await res.GET()).json();
 
-export default function MenuPage() {
   const displayMenu = menuItems.map((item) => (
-    <div key={item.id}>
+    <div key={item._id}>
       {" "}
       <Menu item={item} />
     </div>

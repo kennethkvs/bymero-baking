@@ -6,7 +6,7 @@ export default function CartSection({ cart, total, handleDeleteFromCart }) {
   const displayCartItems = cart.map((thisItem) => {
     return (
       <div
-        key={thisItem.item.id}
+        key={thisItem.item._id}
         className="flex w-full flex-row justify-between"
       >
         <div className="flex flex-row gap-3">

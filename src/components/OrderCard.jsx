@@ -4,7 +4,9 @@ export default function OrderCard({ item, handleAddToCart }) {
       <img src={item.img} className="rounded-t-md" />
       <div className="mt-4 text-2xl font-bold text-accent-100">{item.name}</div>
       <div className="mt-0 text-center text-accent-200">{item.spelling}</div>
-      <div className="mt-0 text-center text-accent-200">${item.price}</div>
+      <div className="mt-0 text-center text-accent-200">
+        ${item.price.$numberDecimal}
+      </div>
       <button
         className="mt-4 w-full rounded-b-md bg-brand-200 py-2 text-center text-brand-100 hover:bg-brand-300"
         onClick={() =>

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Link from "next/link";
 
 export default function Navbar(props) {
@@ -11,7 +10,7 @@ export default function Navbar(props) {
   ];
 
   return (
-    <nav className="h-50 bg-brand-200 flex w-full flex-col items-center p-8 text-white">
+    <nav className="h-50 flex w-full flex-col items-center bg-brand-200 p-8 text-white">
       <div>Bymero Baking</div>
       <div className="flex flex-row">
         {pages.map((page) => (
