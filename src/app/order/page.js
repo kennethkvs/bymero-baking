@@ -6,38 +6,12 @@ import Navbar from "@/components/Navbar";
 import OrderCard from "@/components/OrderCard";
 import CartSection from "@/components/CartSection";
 
-// const menuItems = [
-//   {
-//     _id: 0,
-//     name: "Nastar",
-//     price.$numberDecimal: 15.0,
-//     spelling: "/nasˈtɑɹ/",
-//     desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-//     img: "/images/cookies.jpg",
-//   },
-//   {
-//     _id: 1,
-//     name: "Kaasstengel",
-//     price.$numberDecimal: 15.0,
-//     spelling: "/kaasstɛŋɡɛl/",
-//     desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-//     img: "/images/cookies.jpg",
-//   },
-//   {
-//     _id: 2,
-//     name: "Cookies",
-//     price.$numberDecimal: 15.0,
-//     spelling: "/ˈkʊkiz/",
-//     desc: "Lorem Ipsum dll sajdfjasdfkjajkf ajsdfj sdjfajsdf sjdfadjf",
-//     img: "/images/cookies.jpg",
-//   },
-// ];
-
 export default function OrderPage() {
   const [cart, setCart] = React.useState([]);
   const [total, setTotal] = React.useState(0);
   const [menuItems, setMenuItems] = React.useState([]);
 
+  // Get menu from MongoDB
   React.useEffect(() => {
     fetch("/api/menu")
       .then((res) => res.json())
@@ -101,6 +75,7 @@ export default function OrderPage() {
           cart={cart}
           total={total}
           handleDeleteFromCart={handleDeleteFromCart}
+          handleSubmit={null}
         />
       </main>
       <Footer className="absolute bottom-0 h-20 w-full" />
